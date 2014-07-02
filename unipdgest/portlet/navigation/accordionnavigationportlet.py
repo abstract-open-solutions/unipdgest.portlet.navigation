@@ -1,21 +1,21 @@
 # -*- coding: utf-8 -*-
 
 from Acquisition import aq_inner
+from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.layout.navigation.interfaces import INavtreeStrategy
+from plone.app.layout.navigation.navtree import buildFolderTree
 from plone.app.portlets.portlets.navigation import AddForm as BaseAddForm
 from plone.app.portlets.portlets.navigation import Assignment as BaseAssignment
 from plone.app.portlets.portlets.navigation import EditForm as BaseEditForm
 from plone.app.portlets.portlets.navigation import INavigationPortlet
 from plone.app.portlets.portlets.navigation import Renderer as BaseRenderer
-from zope.component import getMultiAdapter
+from plone.memoize.instance import memoize
 from unipdgest.portlet.navigation import _
 from unipdgest.portlet.navigation.query_builder import NavtreeQueryBuilder
+from zope.component import getMultiAdapter
 from zope.formlib import form
 from zope.interface import implements
-from plone.memoize.instance import memoize
-from plone.app.layout.navigation.navtree import buildFolderTree
-from Products.CMFCore.utils import getToolByName
 
 
 class IAccordionNavigationPortlet(INavigationPortlet):
