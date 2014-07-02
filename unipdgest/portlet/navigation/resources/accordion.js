@@ -34,7 +34,8 @@
 					$this.removeClass('unipdAccordionCollapsed')
 						.addClass('unipdAccordionExpanded');
 					$navigation.data('unipdAccordion-running', false);
-				}).closest('.accordionSection').find('.unipdAccordionCommand').toggle();
+				}).closest('.accordionSection').removeClass('collapsed')
+					.addClass('expanded').find('.unipdAccordionCommand').toggle();
 			});
 
 			$navigation.on('unipdAccordion.close', '.unipdAccordionExpanded', function(event) {
@@ -44,7 +45,8 @@
 					$this.removeClass('unipdAccordionExpanded')
 						.addClass('unipdAccordionCollapsed');
 					$navigation.data('unipdAccordion-running', false);
-				}).closest('.accordionSection').find('.unipdAccordionCommand').toggle();
+				}).closest('.accordionSection').removeClass('expanded')
+					.addClass('collapsed').find('.unipdAccordionCommand').toggle();
 			});
 
 		});
