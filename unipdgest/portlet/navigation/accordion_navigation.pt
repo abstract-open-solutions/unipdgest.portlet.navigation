@@ -3,7 +3,8 @@
     tal:define="root view/navigation_root;">
 
     <dt class="portletHeader"
-        tal:attributes="class python:view.hasName() and 'portletHeader' or 'portletHeader hiddenStructure'">
+        tal:attributes="class python:view.hasName() and 'portletHeader' or 'portletHeader hiddenStructure'"
+        tal:condition="view/data/name">
         <span class="portletTopLeft"></span>
         <a href="#"
            class="tile"
