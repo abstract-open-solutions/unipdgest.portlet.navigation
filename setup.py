@@ -5,13 +5,14 @@ version = '0.1.0'
 
 setup(name='unipdgest.portlet.navigation',
       version=version,
-      description="Navigation with accordion",
+      description="Plone navigation portlet with accordion",
       long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.rst")).read(),
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
       classifiers=[
         "Framework :: Plone",
+        "Framework :: Plone :: 4.3",
         "Programming Language :: Python",
         ],
       keywords='plone navigation accordion',
