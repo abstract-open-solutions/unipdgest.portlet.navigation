@@ -2,17 +2,13 @@
 
 from Acquisition import aq_inner
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from plone.app.portlets.portlets import base
 from plone.app.layout.navigation.interfaces import INavtreeStrategy
-from plone.app.layout.navigation.interfaces import INavigationRoot
-from plone.app.layout.navigation.interfaces import INavigationQueryBuilder
 from plone.app.portlets.portlets.navigation import AddForm as BaseAddForm
 from plone.app.portlets.portlets.navigation import Assignment as BaseAssignment
 from plone.app.portlets.portlets.navigation import EditForm as BaseEditForm
 from plone.app.portlets.portlets.navigation import INavigationPortlet
 from plone.app.portlets.portlets.navigation import Renderer as BaseRenderer
-from plone.portlets.interfaces import IPortletDataProvider
-from zope.component import adapts, getMultiAdapter, queryUtility
+from zope.component import getMultiAdapter
 from unipdgest.portlet.navigation import _
 from unipdgest.portlet.navigation.query_builder import NavtreeQueryBuilder
 from zope.formlib import form
