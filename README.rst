@@ -4,7 +4,7 @@ on higher levels
 How it works
 ============
 
-.. image:: https://blog.redturtle.it/pypi-images/unipdgest.portlet.navigation/unipdgest.portlet.navigation-0.1.0-01.png
+.. image:: http://blog.redturtle.it/pypi-images/unipdgest.portlet.navigation/unipdgest.portlet.navigation-0.1.0-01.png
    :align: right
    :alt: Sample example with custom styles
 
