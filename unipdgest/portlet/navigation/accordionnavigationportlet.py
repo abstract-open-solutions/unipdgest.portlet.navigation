@@ -3,6 +3,7 @@
 from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
 from plone.app.layout.navigation.interfaces import INavtreeStrategy
 from plone.app.layout.navigation.navtree import buildFolderTree
 from plone.app.portlets.portlets.navigation import AddForm as BaseAddForm
@@ -103,6 +104,7 @@ class Renderer(BaseRenderer):
 class AddForm(BaseAddForm):
     form_fields = form.Fields(IAccordionNavigationPortlet)
     form_fields = form_fields.omit(*SKIP_FIELDS)
+    form_fields['root'].custom_widget = UberSelectionWidget
 
     def create(self, data):
         return Assignment(name=data.get('name', ""),
@@ -116,3 +118,4 @@ class AddForm(BaseAddForm):
 class EditForm(BaseEditForm):
     form_fields = form.Fields(IAccordionNavigationPortlet)
     form_fields = form_fields.omit(*SKIP_FIELDS)
+    form_fields['root'].custom_widget = UberSelectionWidget
