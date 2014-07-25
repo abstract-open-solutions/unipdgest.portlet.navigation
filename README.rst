@@ -1,5 +1,5 @@
-This is a simple **Plone navigation portlet** that offer an **accordion** behavior
-on higher levels
+This is a simple **Plone navigation portlet** that provide an **accordion** behavior
+on top levels
 
 How it works
 ============
@@ -15,6 +15,15 @@ The new portlet is an extension of the default Plone navigation but some of it's
 * Display current folder
 
 Accordion navigation will show the choosen root folder and offer the accordion only on higher level of the tree.
+
+Credits
+=======
+
+Developed with the support of `University of Padova - Department of Management and Engineering`__;
+University of Padova supports the `PloneGov initiative`__.
+
+__ http://www.unipd.it/international-area/node/84
+__ http://www.plonegov.it/
 
 Authors
 =======
