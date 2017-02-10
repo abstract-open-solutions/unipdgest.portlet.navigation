@@ -47,9 +47,6 @@ class Assignment(BaseAssignment):
         return _(u'Accordion navigation')
 
 
-SKIP_FIELDS = ('topLevel', 'includeTop', 'currentFolderOnly')
-
-
 class Renderer(BaseRenderer):
 
     render = ViewPageTemplateFile('accordion_navigation.pt')
@@ -103,19 +100,10 @@ class Renderer(BaseRenderer):
 
 class AddForm(BaseAddForm):
     form_fields = form.Fields(IAccordionNavigationPortlet)
-    form_fields = form_fields.omit(*SKIP_FIELDS)
-    form_fields['root'].custom_widget = UberSelectionWidget
 
     def create(self, data):
-        return Assignment(name=data.get('name', ""),
-                          root=data.get('root', ""),
-                          currentFolderOnly=False,
-                          includeTop=False,
-                          topLevel=0,
-                          bottomLevel=data.get('bottomLevel', 0))
+        return Assignment(**data)
 
 
 class EditForm(BaseEditForm):
     form_fields = form.Fields(IAccordionNavigationPortlet)
-    form_fields = form_fields.omit(*SKIP_FIELDS)
-    form_fields['root'].custom_widget = UberSelectionWidget
