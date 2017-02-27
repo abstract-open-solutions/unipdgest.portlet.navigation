@@ -8,11 +8,6 @@ dl.portletNavigationAccordion ul.navTree li a {
 }
 */
 
-.unipdAccordionCommand {
-	float: right;
-	width: 16px;
-}
-
 .unipdAccordionCollapsed {
 	display: none;
 }
