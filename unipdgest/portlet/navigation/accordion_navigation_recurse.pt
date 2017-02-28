@@ -18,7 +18,7 @@
                 li_class        python:is_current and ' navTreeCurrentNode' or '';
                 li_extr_class   python:is_in_path and ' navTreeItemInPath' or '';
                 li_folder_class python:show_children and ' navTreeFolderish' or '';
-                accordionSectionClass python: ' accordionSection' if len(children) > 0 and level==1 else '';
+                accordionSectionClass python: ' accordionSection' if len(children) > 0 else '';
                 normalizeString nocall: context/plone_utils/normalizeString;"
     tal:attributes="class string:navTreeItem visualNoMarker${accordionSectionClass}${li_class}${li_extr_class}${li_folder_class} section-${node/normalized_id}"
     tal:condition="python:bottomLevel &lt;= 0 or level &lt;= bottomLevel">
@@ -32,8 +32,8 @@
            title="Expand this panel"
            i18n:domain="unipdgest.portlet.navigation"
            i18n:attributes="title"
-           tal:attributes="style python:'display:none' if len(children) > 0 and level==1 and in_tree else ''"
-           tal:condition="python:len(children) > 0 and level==1">
+           tal:attributes="style python:'display:none' if len(children) > 0 and in_tree else ''"
+           tal:condition="python:len(children) > 0">
                <img src=""
                  alt="Expand"
                  i18n:attributes="alt"
@@ -44,8 +44,8 @@
            title="Collapse this panel"
            i18n:domain="unipdgest.portlet.navigation"
            i18n:attributes="title"
-           tal:condition="python:len(children) > 0 and level==1"
-           tal:attributes="style python:'display:none' if len(children) > 0 and level==1 and not in_tree else ''"
+           tal:condition="python:len(children) > 0"
+           tal:attributes="style python:'display:none' if len(children) > 0 and not in_tree else ''"
            >
                <img src=""
                  alt="Collapse"
@@ -60,8 +60,8 @@
         </a>
 
         <tal:children condition="python: len(children) > 0">
-            <ul tal:attributes="class python:'navTree navTreeLevel' + str(level) + (' unipdAccordionCollapsed' if level==1 and not in_tree else '') + (' unipdAccordionExpanded' if level==1 and in_tree else '')"
-                tal:condition="python: len(children) > 0 and show_children and bottomLevel and level < bottomLevel or True">
+            <ul tal:attributes="class python:'navTree navTreeLevel' + str(level) + (' unipdAccordionCollapsed' if level > 0 and not in_tree else '') + (' unipdAccordionExpanded' if level > 0 and in_tree else '')"
+                tal:condition="python: len(children) > 0 and show_children or True">
                 <span tal:replace="structure python:view.recurse(children=children, level=level+1, bottomLevel=bottomLevel)" />
             </ul>
         </tal:children>

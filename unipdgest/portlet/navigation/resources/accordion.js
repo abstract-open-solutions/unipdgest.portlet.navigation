@@ -48,12 +48,13 @@
 				}).closest('.accordionSection').removeClass('expanded')
 					.addClass('collapsed').find('.unipdAccordionCommand').toggle();
 			});
-			$navigation.on('click', '.portletNavigationAccordion a.navTreeFolderish', function(event){
+
+			$navigation.on('click', 'a.navTreeFolderish', function(event){
 				event.preventDefault();
-				var $this = $(this);
 				$(this).closest('.accordionSection').find('.unipdAccordionExpanded').trigger('unipdAccordion.close');
 				$(this).closest('.accordionSection').find('.unipdAccordionCollapsed').trigger('unipdAccordion.open');
 			});
+
 		});
 	});
 })(jQuery);
