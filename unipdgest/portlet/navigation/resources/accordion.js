@@ -48,8 +48,7 @@
 				}).closest('.accordionSection').removeClass('expanded')
 					.addClass('collapsed').find('.unipdAccordionCommand').toggle();
 			});
-
-			$navigation.on('click', 'a.accordionHandler', function(event){
+			$navigation.on('click', '.portletNavigationAccordion a.navTreeFolderish', function(event){
 				event.preventDefault();
 				var $this = $(this);
 				$(this).closest('.accordionSection').find('.unipdAccordionExpanded').trigger('unipdAccordion.close');
