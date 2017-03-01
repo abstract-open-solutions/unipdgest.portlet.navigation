@@ -14,8 +14,8 @@
 				if ($navigation.data('unipdAccordion-running')) {
 					return;
 				}
-				$('.unipdAccordionExpanded', $navigation).trigger('unipdAccordion.close');
-				$(this).closest('.accordionSection').find('.unipdAccordionCollapsed').trigger('unipdAccordion.open');
+				//$('.unipdAccordionExpanded', $navigation).trigger('unipdAccordion.close');
+				$(this).closest('.accordionSection').find('> .unipdAccordionCollapsed').trigger('unipdAccordion.open');
 			});
 
 			// click on opened section, it will be closed
@@ -24,7 +24,7 @@
 				if ($navigation.data('unipdAccordion-running')) {
 					return;
 				}
-				$(this).closest('.accordionSection').find('.unipdAccordionExpanded').trigger('unipdAccordion.close');
+				$(this).closest('.accordionSection').find('> .unipdAccordionExpanded').trigger('unipdAccordion.close');
 			});
 
 			$navigation.on('unipdAccordion.open', '.unipdAccordionCollapsed', function(event) {
@@ -51,8 +51,11 @@
 
 			$navigation.on('click', 'a.navTreeFolderish', function(event){
 				event.preventDefault();
-				$(this).closest('.accordionSection').find('.unipdAccordionExpanded').trigger('unipdAccordion.close');
-				$(this).closest('.accordionSection').find('.unipdAccordionCollapsed').trigger('unipdAccordion.open');
+				if ($(this).closest('li.accordionSection').find('> .unipdAccordionExpanded').is(':visible')){
+				  $(this).closest('li.accordionSection').find('> .unipdAccordionExpanded').trigger('unipdAccordion.close');
+				}else{
+					$(this).closest('li.accordionSection').find('> .unipdAccordionCollapsed').trigger('unipdAccordion.open');
+				}
 			});
 
 		});

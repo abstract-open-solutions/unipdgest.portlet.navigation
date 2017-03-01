@@ -31,13 +31,13 @@ class NavtreeQueryBuilder(object):
         # If we are above the navigation root, a navtree query would return
         # nothing (since we explicitly start from the root always). Hence,
         # use a regular depth-1 query in this case.
-
+        #import pdb; pdb.set_trace()
         if subtree:
-            query['path'] = {'query': currentPath, 'depth': 2}
+            query['path'] = {'query': currentPath, 'depth': 5}
         elif not currentPath.startswith(rootPath):
-            query['path'] = {'query': rootPath, 'depth': 2}
+            query['path'] = {'query': rootPath, 'depth': 5}
         else:
-            query['path'] = {'query': currentPath, 'navtree': 1, 'depth': 2, }
+            query['path'] = {'query': currentPath, 'navtree': 1, 'depth': 5 }
 
         topLevel = navtree_properties.getProperty('topLevel', 0)
         if topLevel and topLevel > 0:

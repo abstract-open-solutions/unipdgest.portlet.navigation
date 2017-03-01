@@ -86,11 +86,12 @@ class Renderer(BaseRenderer):
         nav_root_path = '/'.join(nav_root.getPhysicalPath())
         context_path = '/'.join(context.getPhysicalPath())
         if context_path.startswith(nav_root_path) and \
-                len(context.getPhysicalPath()) - len(portal.getPhysicalPath()) > 2:
+                len(context.getPhysicalPath()) - len(portal.getPhysicalPath()) > 5:
             queryBuilder = NavtreeQueryBuilder(context, subtree=True)
             subtree = buildFolderTree(context, obj=context,
                                       query=queryBuilder(),
                                       strategy=strategy)
+            #import pdb; pdb.set_trace()
             subtree = self._minifyTree(subtree['children'], context_path)
             tree_node = self._findNode(tree, context_path)
             # now place the subtree inside the tree
