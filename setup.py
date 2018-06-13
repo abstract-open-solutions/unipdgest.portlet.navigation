@@ -26,7 +26,6 @@ setup(name='unipdgest.portlet.navigation',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'plone.app.form',
           'plone.app.portlets',
       ],
       entry_points="""
