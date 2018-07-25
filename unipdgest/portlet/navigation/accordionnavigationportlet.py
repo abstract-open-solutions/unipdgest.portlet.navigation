@@ -79,7 +79,10 @@ class Renderer(BaseRenderer):
 
     def _expandFolderTree(self, tree, queryBuilder, strategy):
         """Add a subtree to the current tree"""
-        context = aq_inner(self.context)
+        plone_context = getMultiAdapter(
+            (self.context, self.request), name="plone_context_state"
+        )
+        context = plone_context.canonical_object()
         nav_root = self.getNavRoot()
         portal = getToolByName(context, 'portal_url').getPortalObject()
         nav_root_path = '/'.join(nav_root.getPhysicalPath())
